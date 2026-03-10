@@ -15,6 +15,17 @@ custom_font = tkfont.Font(family='Arial', size=36)
 label = tk.Label(root, text="Matematik Spil", font=custom_font)
 label.pack(pady=50)
 
+# set of buttons for main menu
+custom_font_button = tkfont.Font(family='Arial', size=18)
+button_PLAY = tk.Button(root, text="PLAY", height=None, width=20, font=custom_font_button)
+button_PLAY.pack()
+
+button_SETINGS = tk.Button(root, text='SETINGS', height=None, width=15, font=custom_font_button)
+button_SETINGS.pack(pady=50)
+
+button_QUIT = tk.Button(root, text='QUIT', height=None, width=15, font=custom_font_button)
+button_QUIT.pack(pady=50)
+
 
 
 
