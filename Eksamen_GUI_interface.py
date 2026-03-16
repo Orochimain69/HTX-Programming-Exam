@@ -25,7 +25,7 @@ button_PLAY = tk.Button(root, text="PLAY", height=None, width=20, font=custom_fo
 button_PLAY.pack()
 
 button_SETINGS = tk.Button(root, text='SETINGS', height=None, width=15, font=custom_font_button)
-button_SETINGS.pack(pady=50)
+button_SETINGS.pack(pady=(50,20))
 
 # add back when optimizing with functions
 # def QUIT_button():
@@ -33,7 +33,7 @@ button_SETINGS.pack(pady=50)
     
 # button that close window when pressed    
 button_QUIT = tk.Button(root, text='QUIT', height=None, width=15, font=custom_font_button, command=root.destroy)
-button_QUIT.pack(pady=50)
+button_QUIT.pack(pady=(50,20))
 
 
 
