@@ -13,7 +13,11 @@ root.geometry('600x400')
 # label is title of game in Tkinter window
 custom_font = tkfont.Font(family='Arial', size=36)
 label = tk.Label(root, text="Matematik Spil", font=custom_font)
-label.pack(pady=50)
+label.pack(
+    padx=(0,0),
+    pady=(150,100)
+    )
+
 
 # set of buttons for main menu
 custom_font_button = tkfont.Font(family='Arial', size=18)
