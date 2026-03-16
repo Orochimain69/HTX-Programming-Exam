@@ -1,5 +1,6 @@
 import tkinter as tk
 import tkinter.font as tkfont
+from tkinter import ttk
 
 
 # root is Tkinter window
@@ -19,11 +20,35 @@ label.pack(
     )
 
 
-# set of buttons for main menu
+# set of buttons for main menu (PLAY button top)
 custom_font_button = tkfont.Font(family='Arial', size=18)
 button_PLAY = tk.Button(root, text="PLAY", height=None, width=20, font=custom_font_button)
 button_PLAY.pack()
 
+
+# label and combobox to select math mode to train
+def select(event):
+    selected_item = combo_box.get()
+    label.config(text="Selected Item: " + selected_item)
+
+
+label = tk.Label(root, text="Mode Selected:")
+label.pack(pady=10)
+
+# Create a Combobox widget
+combo_box = ttk.Combobox(
+    root,
+    values=["Plus", "Minus", "Gange", "Division"],
+    state="readonly"
+)
+combo_box.pack(pady=5)
+
+combo_box.set("Select mode")
+
+combo_box.bind("<<ComboboxSelected>>", select)
+
+
+# setings button (no function, middle)
 button_SETINGS = tk.Button(root, text='SETINGS', height=None, width=15, font=custom_font_button)
 button_SETINGS.pack(pady=(50,20))
 
@@ -31,7 +56,7 @@ button_SETINGS.pack(pady=(50,20))
 # def QUIT_button():
 #     root.destroy()
     
-# button that close window when pressed    
+# button that close window when pressed (bottom)   
 button_QUIT = tk.Button(root, text='QUIT', height=None, width=15, font=custom_font_button, command=root.destroy)
 button_QUIT.pack(pady=(50,20))
 
