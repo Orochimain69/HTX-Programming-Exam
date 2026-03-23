@@ -70,8 +70,17 @@ def main_window(new_window):
     
 def new_window():
     root = tk.Tk()
-    root.title("new window")
+    root.title("Gange spil")
+    root.resizable(height = None, width = None)
+    root.geometry('600x400')
     
+    custom_font = tkfont.Font(family='Arial', size=36)
+    label = tk.Label(root, text="Gange Spil", font=custom_font)
+    label.pack(
+        padx=(0,0),
+        pady=(50,100)
+        )
+   
     root.mainloop()
     
 
