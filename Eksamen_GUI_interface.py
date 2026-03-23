@@ -3,9 +3,11 @@ import tkinter.font as tkfont
 from tkinter import ttk
 
 
-def main():
+def main(new_window):
+    main_window(new_window)
     
-    
+
+def main_window(new_window):
     # root is Tkinter window
     root = tk.Tk()
     root.title("Matematik Spil")
@@ -25,7 +27,7 @@ def main():
 
     # set of buttons for main menu (PLAY button top)
     custom_font_button = tkfont.Font(family='Arial', size=18)
-    button_PLAY = tk.Button(root, text="PLAY", height=None, width=20, font=custom_font_button)
+    button_PLAY = tk.Button(root, text="PLAY", height=None, width=20, font=custom_font_button, command=new_window)
     button_PLAY.pack()
 
 
@@ -63,10 +65,15 @@ def main():
     button_QUIT = tk.Button(root, text='QUIT', height=None, width=15, font=custom_font_button, command=root.destroy)
     button_QUIT.pack(pady=(50,20))
 
-
-
-
     root.mainloop()
+    
+    
+def new_window():
+    root = tk.Tk()
+    root.title("new window")
+    
+    root.mainloop()
+    
 
 if __name__ == "__main__":
-    main()
+    main(new_window)
