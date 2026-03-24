@@ -1,6 +1,8 @@
 import pygame
 import random
 import math
+import time
+
 
 
 User_points = 0
@@ -11,7 +13,8 @@ def main():
 
     def Game_start():
         User_points = 0
-
+        
+        
     
         def Question_maker():
             
@@ -29,7 +32,7 @@ def main():
             #Question = List_of_numbers[random.randint(0,9)] + list_of_operators[random.randint(0,3)] + List_of_numbers[random.randint(0,9)]
             
             Question = number1+operand+number2
-            #Question = '10/3'
+            #Question = '2/3'
             
             
             answer = eval(Question)
@@ -58,18 +61,27 @@ def main():
             
             
             
-        question, answer = Question_maker()
         
         
         #print(question, answer)
         def Answer_checking():
             
+            print('Hvis svaret indholder decimaler, skal der kun angives 2.')
             User_answer = input('Answer > ')
             
-            if float(User_answer) == (answer)
+            if float(User_answer) == answer:
+                print('correct')
+            else:
+                print('WRONG!!!!')
             
             pass
             
+        
+        question, answer = Question_maker()
+        
+        Correct_or_not = Answer_checking()
+        
+        
         
         
         #User_Answer = input((question))
