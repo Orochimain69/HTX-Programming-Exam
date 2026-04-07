@@ -3,11 +3,10 @@ import tkinter.font as tkfont
 from tkinter import ttk
 
 
-def main(new_window):
-    main_window(new_window)
+
     
 
-def main_window(new_window):
+def main_window():
     # root is Tkinter window
     root = tk.Tk()
     root.title("Matematik Spil")
@@ -25,6 +24,22 @@ def main_window(new_window):
         )
 
 
+    label = tk.Label(root, text="Mode Selected:")
+    label.pack(pady=10)
+
+
+    # Create a Combobox widget
+    combo_box = ttk.Combobox(
+        root,
+        values=["Plus", "Minus", "Gange", "Division"],
+        state="readonly",
+    )
+    combo_box.pack(pady=5)
+
+    combo_box.set("Select mode")
+
+
+
     # set of buttons for main menu (PLAY button top)
     custom_font_button = tkfont.Font(family='Arial', size=18)
     button_PLAY = tk.Button(root, text="PLAY", height=None, width=20, font=custom_font_button, command=new_window)
@@ -37,20 +52,9 @@ def main_window(new_window):
         label.config(text="Selected Mode: " + selected_item)
 
 
-    label = tk.Label(root, text="Mode Selected:")
-    label.pack(pady=10)
-
-    # Create a Combobox widget
-    combo_box = ttk.Combobox(
-        root,
-        values=["Plus", "Minus", "Gange", "Division"],
-        state="readonly"
-    )
-    combo_box.pack(pady=5)
-
-    combo_box.set("Select mode")
 
     combo_box.bind("<<ComboboxSelected>>", select)
+
 
 
     # setings button (no function, middle)
@@ -80,9 +84,11 @@ def new_window():
         padx=(0,0),
         pady=(50,100)
         )
+    
+    
    
     root.mainloop()
     
 
 if __name__ == "__main__":
-    main(new_window)
+    main_window()
