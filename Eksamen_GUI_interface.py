@@ -86,6 +86,44 @@ def new_window(selected_option):
             pady=(50,100)
             )
         
+    elif selected_option == "Minus":
+        root = tk.Tk()
+        root.title("Minus spil")
+        root.resizable(height = None, width = None)
+        root.geometry('600x400')
+        
+        custom_font = tkfont.Font(family='Arial', size=36)
+        label = tk.Label(root, text="Minus Spil", font=custom_font)
+        label.pack(
+            padx=(0,0),
+            pady=(50,100)
+            )
+
+    elif selected_option == "Gange":
+        root = tk.Tk()
+        root.title("Gange spil")
+        root.resizable(height = None, width = None)
+        root.geometry('600x400')
+        
+        custom_font = tkfont.Font(family='Arial', size=36)
+        label = tk.Label(root, text="Gange Spil", font=custom_font)
+        label.pack(
+            padx=(0,0),
+            pady=(50,100)
+            )
+
+    elif selected_option == "Division":
+        root = tk.Tk()
+        root.title("Division spil")
+        root.resizable(height = None, width = None)
+        root.geometry('600x400')
+        
+        custom_font = tkfont.Font(family='Arial', size=36)
+        label = tk.Label(root, text="Division Spil", font=custom_font)
+        label.pack(
+            padx=(0,0),
+            pady=(50,100)
+            )
 
     
     
