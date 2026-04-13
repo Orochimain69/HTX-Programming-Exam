@@ -42,7 +42,7 @@ def main_window():
 
     # set of buttons for main menu (PLAY button top)
     custom_font_button = tkfont.Font(family='Arial', size=18)
-    button_PLAY = tk.Button(root, text="PLAY", height=None, width=20, font=custom_font_button, command=new_window)
+    button_PLAY = tk.Button(root, text="PLAY", height=None, width=20, font=custom_font_button, command=lambda: new_window(combo_box.get()))
     button_PLAY.pack()
 
 
@@ -72,18 +72,21 @@ def main_window():
     root.mainloop()
     
     
-def new_window():
-    root = tk.Tk()
-    root.title("Gange spil")
-    root.resizable(height = None, width = None)
-    root.geometry('600x400')
-    
-    custom_font = tkfont.Font(family='Arial', size=36)
-    label = tk.Label(root, text="Gange Spil", font=custom_font)
-    label.pack(
-        padx=(0,0),
-        pady=(50,100)
-        )
+def new_window(selected_option):
+    if selected_option == "Plus":
+        root = tk.Tk()
+        root.title("Plus spil")
+        root.resizable(height = None, width = None)
+        root.geometry('600x400')
+        
+        custom_font = tkfont.Font(family='Arial', size=36)
+        label = tk.Label(root, text="Plus Spil", font=custom_font)
+        label.pack(
+            padx=(0,0),
+            pady=(50,100)
+            )
+        
+
     
     
    
