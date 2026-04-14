@@ -42,7 +42,13 @@ def main_window():
 
     # set of buttons for main menu (PLAY button top)
     custom_font_button = tkfont.Font(family='Arial', size=18)
-    button_PLAY = tk.Button(root, text="PLAY", height=None, width=20, font=custom_font_button, command=lambda: new_window(combo_box.get()))
+    button_PLAY = tk.Button(root,
+    activebackground="blue",
+    activeforeground="white",
+    text="PLAY", height=None,
+    width=20, font=custom_font_button,
+    command=lambda: new_window(combo_box.get()),
+    )
     button_PLAY.pack()
 
 
@@ -58,7 +64,12 @@ def main_window():
 
 
     # setings button (no function, middle)
-    button_SETINGS = tk.Button(root, text='SETINGS', height=None, width=15, font=custom_font_button)
+    button_SETINGS = tk.Button(root,
+    activebackground="blue",
+    activeforeground="white",
+    text='SETINGS',
+    height=None, width=15,
+    font=custom_font_button)
     button_SETINGS.pack(pady=(50,20))
 
     # add back when optimizing with functions
@@ -66,7 +77,13 @@ def main_window():
     #     root.destroy()
         
     # button that close window when pressed (bottom)   
-    button_QUIT = tk.Button(root, text='QUIT', height=None, width=15, font=custom_font_button, command=root.destroy)
+    button_QUIT = tk.Button(root,
+    activebackground="blue",
+    activeforeground="white",
+    text='QUIT',
+    height=None, width=15,
+    font=custom_font_button,
+    command=root.destroy)
     button_QUIT.pack(pady=(50,20))
 
     root.mainloop()
@@ -87,8 +104,15 @@ def new_window(selected_option):
             padx=(0,0),
             pady=(50,100)
             )
-        button_QUIT = tk.Button(root, text='QUIT', height=None, width=15, font=custom_font_button, command=root.destroy)
+        button_QUIT = tk.Button(root,
+        activebackground="blue",
+        activeforeground="white",
+        text='QUIT',
+        height=None, width=15,
+        font=custom_font_button,
+        command=root.destroy)
         button_QUIT.pack(pady=(50,20))
+
 
         
     elif selected_option == "Minus":
@@ -103,7 +127,13 @@ def new_window(selected_option):
             padx=(0,0),
             pady=(50,100)
             )
-        button_QUIT = tk.Button(root, text='QUIT', height=None, width=15, font=custom_font_button, command=root.destroy)
+        button_QUIT = tk.Button(root,
+        activebackground="blue",
+        activeforeground="white",
+        text='QUIT',
+        height=None, width=15,
+        font=custom_font_button,
+        command=root.destroy)
         button_QUIT.pack(pady=(50,20))
 
 
@@ -119,7 +149,13 @@ def new_window(selected_option):
             padx=(0,0),
             pady=(50,100)
             )
-        button_QUIT = tk.Button(root, text='QUIT', height=None, width=15, font=custom_font_button, command=root.destroy)
+        button_QUIT = tk.Button(root,
+        activebackground="blue",
+        activeforeground="white",
+        text='QUIT',
+        height=None, width=15,
+        font=custom_font_button,
+        command=root.destroy)
         button_QUIT.pack(pady=(50,20))
 
 
@@ -135,7 +171,13 @@ def new_window(selected_option):
             padx=(0,0),
             pady=(50,100)
             )
-        button_QUIT = tk.Button(root, text='QUIT', height=None, width=15, font=custom_font_button, command=root.destroy)
+        button_QUIT = tk.Button(root,
+        activebackground="blue",
+        activeforeground="white",
+        text='QUIT',
+        height=None, width=15,
+        font=custom_font_button,
+        command=root.destroy)
         button_QUIT.pack(pady=(50,20))
 
 
