@@ -58,7 +58,7 @@ def main_window():
         label.config(text="Selected Mode: " + selected_item)
 
 
-
+    # DO NOT MOVE!!!!, WILL NOT WORK!!!!
     combo_box.bind("<<ComboboxSelected>>", select)
 
 
