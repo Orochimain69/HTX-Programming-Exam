@@ -73,6 +73,8 @@ def main_window():
     
     
 def new_window(selected_option):
+    custom_font_button = tkfont.Font(family='Arial', size=18)
+    
     if selected_option == "Plus":
         root = tk.Tk()
         root.title("Plus spil")
@@ -85,6 +87,9 @@ def new_window(selected_option):
             padx=(0,0),
             pady=(50,100)
             )
+        button_QUIT = tk.Button(root, text='QUIT', height=None, width=15, font=custom_font_button, command=root.destroy)
+        button_QUIT.pack(pady=(50,20))
+
         
     elif selected_option == "Minus":
         root = tk.Tk()
@@ -98,6 +103,9 @@ def new_window(selected_option):
             padx=(0,0),
             pady=(50,100)
             )
+        button_QUIT = tk.Button(root, text='QUIT', height=None, width=15, font=custom_font_button, command=root.destroy)
+        button_QUIT.pack(pady=(50,20))
+
 
     elif selected_option == "Gange":
         root = tk.Tk()
@@ -111,6 +119,9 @@ def new_window(selected_option):
             padx=(0,0),
             pady=(50,100)
             )
+        button_QUIT = tk.Button(root, text='QUIT', height=None, width=15, font=custom_font_button, command=root.destroy)
+        button_QUIT.pack(pady=(50,20))
+
 
     elif selected_option == "Division":
         root = tk.Tk()
@@ -124,6 +135,9 @@ def new_window(selected_option):
             padx=(0,0),
             pady=(50,100)
             )
+        button_QUIT = tk.Button(root, text='QUIT', height=None, width=15, font=custom_font_button, command=root.destroy)
+        button_QUIT.pack(pady=(50,20))
+
 
     
     
