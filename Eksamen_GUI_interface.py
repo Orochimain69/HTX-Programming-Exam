@@ -101,9 +101,15 @@ def new_window(selected_option):
         custom_font = tkfont.Font(family='Arial', size=36)
         label = tk.Label(root, text="Plus Spil", font=custom_font)
         label.pack(
-            padx=(0,0),
-            pady=(50,100)
-            )
+        padx=(0,0),
+        pady=(50,100)
+        )
+        
+        textvar = tk.StringVar()
+        textbox = tk.Entry(root, textvariable=textvar)
+        textbox.insert(0,"")
+        textbox.pack()
+        
         button_QUIT = tk.Button(root,
         activebackground="blue",
         activeforeground="white",
@@ -124,9 +130,15 @@ def new_window(selected_option):
         custom_font = tkfont.Font(family='Arial', size=36)
         label = tk.Label(root, text="Minus Spil", font=custom_font)
         label.pack(
-            padx=(0,0),
-            pady=(50,100)
-            )
+        padx=(0,0),
+        pady=(50,100)
+        )
+        
+        textvar = tk.StringVar()
+        textbox = tk.Entry(root, textvariable=textvar)
+        textbox.insert(0,"")
+        textbox.pack()
+        
         button_QUIT = tk.Button(root,
         activebackground="blue",
         activeforeground="white",
@@ -146,9 +158,15 @@ def new_window(selected_option):
         custom_font = tkfont.Font(family='Arial', size=36)
         label = tk.Label(root, text="Gange Spil", font=custom_font)
         label.pack(
-            padx=(0,0),
-            pady=(50,100)
-            )
+        padx=(0,0),
+        pady=(50,100)
+        )
+        
+        textvar = tk.StringVar()
+        textbox = tk.Entry(root, textvariable=textvar)
+        textbox.insert(0,"")
+        textbox.pack()
+        
         button_QUIT = tk.Button(root,
         activebackground="blue",
         activeforeground="white",
@@ -168,9 +186,15 @@ def new_window(selected_option):
         custom_font = tkfont.Font(family='Arial', size=36)
         label = tk.Label(root, text="Division Spil", font=custom_font)
         label.pack(
-            padx=(0,0),
-            pady=(50,100)
-            )
+        padx=(0,0),
+        pady=(50,100)
+        )
+        
+        textvar = tk.StringVar()
+        textbox = tk.Entry(root, textvariable=textvar)
+        textbox.insert(0,"")
+        textbox.pack()
+
         button_QUIT = tk.Button(root,
         activebackground="blue",
         activeforeground="white",
