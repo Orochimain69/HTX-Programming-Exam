@@ -106,9 +106,17 @@ def new_window(selected_option):
         )
         
         textvar = tk.StringVar()
-        textbox = tk.Entry(root, textvariable=textvar)
+        textbox = tk.Entry(root, textvariable=textvar, width=30)
         textbox.insert(0,"")
         textbox.pack()
+        
+        button_answar = tk.Button(root,
+        activebackground='blue',
+        activeforeground='white',
+        text='Answar',
+        height=None, width=10,
+        font=custom_font_button)
+        button_answar.pack(pady=(5,20))
         
         button_QUIT = tk.Button(root,
         activebackground="blue",
@@ -135,9 +143,18 @@ def new_window(selected_option):
         )
         
         textvar = tk.StringVar()
-        textbox = tk.Entry(root, textvariable=textvar)
+        textbox = tk.Entry(root, textvariable=textvar, width=30)
         textbox.insert(0,"")
         textbox.pack()
+        
+        button_answar = tk.Button(root,
+        activebackground='blue',
+        activeforeground='white',
+        text='Answar',
+        height=None, width=10,
+        font=custom_font_button)
+        button_answar.pack(pady=(5,20))
+
         
         button_QUIT = tk.Button(root,
         activebackground="blue",
@@ -163,9 +180,18 @@ def new_window(selected_option):
         )
         
         textvar = tk.StringVar()
-        textbox = tk.Entry(root, textvariable=textvar)
+        textbox = tk.Entry(root, textvariable=textvar, width=30)
         textbox.insert(0,"")
         textbox.pack()
+        
+        button_answar = tk.Button(root,
+        activebackground='blue',
+        activeforeground='white',
+        text='Answar',
+        height=None, width=10,
+        font=custom_font_button)
+        button_answar.pack(pady=(5,20))
+
         
         button_QUIT = tk.Button(root,
         activebackground="blue",
@@ -191,9 +217,18 @@ def new_window(selected_option):
         )
         
         textvar = tk.StringVar()
-        textbox = tk.Entry(root, textvariable=textvar)
+        textbox = tk.Entry(root, textvariable=textvar, width=30)
         textbox.insert(0,"")
         textbox.pack()
+        
+        button_answar = tk.Button(root,
+        activebackground='blue',
+        activeforeground='white',
+        text='Answar',
+        height=None, width=10,
+        font=custom_font_button)
+        button_answar.pack(pady=(5,20))
+
 
         button_QUIT = tk.Button(root,
         activebackground="blue",
