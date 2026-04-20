@@ -48,7 +48,7 @@ def main_window():
     text="PLAY", height=None,
     width=20, font=custom_font_button,
     command=lambda: new_window(combo_box.get()),
-    )
+    ) # lambda is a temporary function to set when don't want to bother naming function because of quick use
     button_PLAY.pack()
 
 
