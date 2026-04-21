@@ -3,11 +3,10 @@ import tkinter.font as tkfont
 from tkinter import ttk
 
 
-def main(new_window):
-    main_window(new_window)
+
     
 
-def main_window(new_window):
+def main_window():
     # root is Tkinter window
     root = tk.Tk()
     root.title("Matematik Spil")
@@ -25,9 +24,31 @@ def main_window(new_window):
         )
 
 
+    label = tk.Label(root, text="Mode Selected:")
+    label.pack(pady=10)
+
+
+    # Create a Combobox widget
+    combo_box = ttk.Combobox(
+        root,
+        values=["Plus", "Minus", "Gange", "Division"],
+        state="readonly",
+    )
+    combo_box.pack(pady=5)
+
+    combo_box.set("Select mode")
+
+
+
     # set of buttons for main menu (PLAY button top)
     custom_font_button = tkfont.Font(family='Arial', size=18)
-    button_PLAY = tk.Button(root, text="PLAY", height=None, width=20, font=custom_font_button, command=new_window)
+    button_PLAY = tk.Button(root,
+    activebackground="blue",
+    activeforeground="white",
+    text="PLAY", height=None,
+    width=20, font=custom_font_button,
+    command=lambda: new_window(combo_box.get()),
+    ) # lambda is a temporary function to set when don't want to bother naming function because of quick use
     button_PLAY.pack()
 
 
@@ -37,24 +58,18 @@ def main_window(new_window):
         label.config(text="Selected Mode: " + selected_item)
 
 
-    label = tk.Label(root, text="Mode Selected:")
-    label.pack(pady=10)
-
-    # Create a Combobox widget
-    combo_box = ttk.Combobox(
-        root,
-        values=["Plus", "Minus", "Gange", "Division"],
-        state="readonly"
-    )
-    combo_box.pack(pady=5)
-
-    combo_box.set("Select mode")
-
+    # DO NOT MOVE!!!!, WILL NOT WORK!!!!
     combo_box.bind("<<ComboboxSelected>>", select)
 
 
+
     # setings button (no function, middle)
-    button_SETINGS = tk.Button(root, text='SETINGS', height=None, width=15, font=custom_font_button)
+    button_SETINGS = tk.Button(root,
+    activebackground="blue",
+    activeforeground="white",
+    text='SETINGS',
+    height=None, width=15,
+    font=custom_font_button)
     button_SETINGS.pack(pady=(50,20))
 
     # add back when optimizing with functions
@@ -62,27 +77,190 @@ def main_window(new_window):
     #     root.destroy()
         
     # button that close window when pressed (bottom)   
-    button_QUIT = tk.Button(root, text='QUIT', height=None, width=15, font=custom_font_button, command=root.destroy)
+    button_QUIT = tk.Button(root,
+    activebackground="blue",
+    activeforeground="white",
+    text='QUIT',
+    height=None, width=15,
+    font=custom_font_button,
+    command=root.destroy)
     button_QUIT.pack(pady=(50,20))
 
     root.mainloop()
     
     
-def new_window():
-    root = tk.Tk()
-    root.title("Gange spil")
-    root.resizable(height = None, width = None)
-    root.geometry('600x400')
+def new_window(selected_option):
+    custom_font_button = tkfont.Font(family='Arial', size=18)
     
-    custom_font = tkfont.Font(family='Arial', size=36)
-    label = tk.Label(root, text="Gange Spil", font=custom_font)
-    label.pack(
+    # PLUS window with all included, creating game window popup
+    if selected_option == "Plus":
+        root = tk.Tk()
+        root.title("Plus spil")
+        root.resizable(height = None, width = None)
+        root.geometry('600x400')
+        
+        # title in window and custom font
+        custom_font = tkfont.Font(family='Arial', size=36)
+        label = tk.Label(root, text="Plus Spil", font=custom_font)
+        label.pack(
         padx=(0,0),
         pady=(50,100)
         )
+        
+#         # creating a textbox to write in
+#         textvar = tk.StringVar()
+#         textbox = tk.Entry(root, textvariable=textvar, width=30)
+#         textbox.insert(0,"")
+#         textbox.pack()
+#         
+#         # button to submit answar
+#         button_answar = tk.Button(root,
+#         activebackground='blue',
+#         activeforeground='white',
+#         text='Answar',
+#         height=None, width=10,
+#         font=custom_font_button)
+#         button_answar.pack(pady=(5,20))
+        
+        #button to quit
+        button_QUIT = tk.Button(root,
+        activebackground="blue",
+        activeforeground="white",
+        text='QUIT',
+        height=None, width=15,
+        font=custom_font_button,
+        command=root.destroy)
+        button_QUIT.pack(pady=(50,20))
+
+
+        # MINUS window with all included, creatong game window popup
+    elif selected_option == "Minus":
+        root = tk.Tk()
+        root.title("Minus spil")
+        root.resizable(height = None, width = None)
+        root.geometry('600x400')
+        
+        # title in window and custom font
+        custom_font = tkfont.Font(family='Arial', size=36)
+        label = tk.Label(root, text="Minus Spil", font=custom_font)
+        label.pack(
+        padx=(0,0),
+        pady=(50,100)
+        )
+        
+#         # creating a textbox to write in
+#         textvar = tk.StringVar()
+#         textbox = tk.Entry(root, textvariable=textvar, width=30)
+#         textbox.insert(0,"")
+#         textbox.pack()
+#         
+#         # button to submit answar
+#         button_answar = tk.Button(root,
+#         activebackground='blue',
+#         activeforeground='white',
+#         text='Answar',
+#         height=None, width=10,
+#         font=custom_font_button)
+#         button_answar.pack(pady=(5,20))
+
+        #button to quit
+        button_QUIT = tk.Button(root,
+        activebackground="blue",
+        activeforeground="white",
+        text='QUIT',
+        height=None, width=15,
+        font=custom_font_button,
+        command=root.destroy)
+        button_QUIT.pack(pady=(50,20))
+
+        
+        # GANGE window with all included, creating game window popup
+    elif selected_option == "Gange":
+        root = tk.Tk()
+        root.title("Gange spil")
+        root.resizable(height = None, width = None)
+        root.geometry('600x400')
+        
+        # title in window and custom font
+        custom_font = tkfont.Font(family='Arial', size=36)
+        label = tk.Label(root, text="Gange Spil", font=custom_font)
+        label.pack(
+        padx=(0,0),
+        pady=(50,100)
+        )
+        
+#         # creating a textbox to write in
+#         textvar = tk.StringVar()
+#         textbox = tk.Entry(root, textvariable=textvar, width=30)
+#         textbox.insert(0,"")
+#         textbox.pack()
+#         
+#         # button to submit answar
+#         button_answar = tk.Button(root,
+#         activebackground='blue',
+#         activeforeground='white',
+#         text='Answar',
+#         height=None, width=10,
+#         font=custom_font_button)
+#         button_answar.pack(pady=(5,20))
+
+        #button to quit
+        button_QUIT = tk.Button(root,
+        activebackground="blue",
+        activeforeground="white",
+        text='QUIT',
+        height=None, width=15,
+        font=custom_font_button,
+        command=root.destroy)
+        button_QUIT.pack(pady=(50,20))
+
+        
+        # DIVISION window with all included, creating game window popup
+    elif selected_option == "Division":
+        root = tk.Tk()
+        root.title("Division spil")
+        root.resizable(height = None, width = None)
+        root.geometry('600x400')
+        
+        # title in window and custom font
+        custom_font = tkfont.Font(family='Arial', size=36)
+        label = tk.Label(root, text="Division Spil", font=custom_font)
+        label.pack(
+        padx=(0,0),
+        pady=(50,100)
+        )
+        
+#         # creating a textbox to write in
+#         textvar = tk.StringVar()
+#         textbox = tk.Entry(root, textvariable=textvar, width=30)
+#         textbox.insert(0,"")
+#         textbox.pack()
+#         
+#         # button to submit answar
+#         button_answar = tk.Button(root,
+#         activebackground='blue',
+#         activeforeground='white',
+#         text='Answar',
+#         height=None, width=10,
+#         font=custom_font_button)
+#         button_answar.pack(pady=(5,20))
+
+        #button to quit
+        button_QUIT = tk.Button(root,
+        activebackground="blue",
+        activeforeground="white",
+        text='QUIT',
+        height=None, width=15,
+        font=custom_font_button,
+        command=root.destroy)
+        button_QUIT.pack(pady=(50,20))
+
+
+    
+    
    
     root.mainloop()
     
 
 if __name__ == "__main__":
-    main(new_window)
+    main_window()
