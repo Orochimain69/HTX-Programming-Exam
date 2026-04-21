@@ -62,8 +62,10 @@ def Answer_checking(User_answer, correct_answer):
         
         if float(User_answer) == correct_answer:
             print('correct')
+            #Question_maker()
         else:
             print('WRONG!!!!')
+            #Question_maker()
         #Exit = input('do you wanna exit? ')
         #if Exit == 'y':
             #wee = 2
