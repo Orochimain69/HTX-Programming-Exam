@@ -1,4 +1,4 @@
-import pygame
+#import pygame
 import random
 import math
 import time
@@ -91,7 +91,24 @@ def Answer_checking(User_answer, correct_answer):
 #Game_start()
 
 
+def Point_system():
+    
+    t = 5
+    
+    while t:
+        #mins, secs = divmod(t, 60)
+        #timer = '{:02d}:{:02d}'.format(mins, secs)
+        #print(timer, end='\r')  # Overwrite the line each second
+        print(t, end='\r')
+        time.sleep(1)
+        t -= 1
 
+    print("Fire in the hole!!")
+
+
+
+
+    
 
 # if __name__ == "Play_game.py":
 #     main()

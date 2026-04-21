@@ -5,6 +5,8 @@ from random import shuffle as shuffl
 
 from tkinter import Label
 
+import time
+
 import exam_project as ex
 
 
@@ -105,6 +107,10 @@ def check(User_answer, correct_answer):
     
 
 New_tkinter_question()
+
+
+
+
 
 tk.mainloop()
 
