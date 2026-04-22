@@ -62,6 +62,7 @@ def Answer_checking(User_answer, correct_answer):
         
         if float(User_answer) == correct_answer:
             print('correct')
+            
             #Question_maker()
         else:
             print('WRONG!!!!')
@@ -90,18 +91,36 @@ def Answer_checking(User_answer, correct_answer):
     
 #Game_start()
 
+def Countdown_timer(time_left):
+    
+    
+    if time_left > 0:
+    
+        time_left = time_left - 1
+        
+        
+        print(time_left)
+        
+        root.after(1000, Countdown_timer, time_left)
+    
+    
+    
 
-def Point_system():
+
+
+#def Point_system(time_left, answered_correct):
+def Point_system(time_left):   
     
-    t = 5
+    def Point_function(time_left):
+        
+        Points_before_rounding = 1.1**time_left
+        
+        
+        
+        
+        
     
-    while t:
-        #mins, secs = divmod(t, 60)
-        #timer = '{:02d}:{:02d}'.format(mins, secs)
-        #print(timer, end='\r')  # Overwrite the line each second
-        print(t, end='\r')
-        time.sleep(1)
-        t -= 1
+    #def Answer_multiplier(answered_correct)
 
     print("Fire in the hole!!")
 

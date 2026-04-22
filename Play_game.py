@@ -53,9 +53,19 @@ Correctsvar.pack()
 Andetsvar.pack()
 Tredjesvar.pack()
 
+time_label = tk.Label(root,)
+
+root.grid_rowconfigure(0, weight=1)
+root.grid_columnconfigure(0, weight=1)
+
+
+time_label.grid(row = 0, column=0, sticky="ne" )
 
 
 
+
+def Timer_wrapper(time_left):
+    ex.Countdown_timer(time_left)
 
 
 def New_tkinter_question():
@@ -92,7 +102,6 @@ def New_tkinter_question():
     Tredjesvar.config(text = Answer_list[2],
                    command=lambda:check(Answer_list[2], answer)
                    )
-
 
 
 def check(User_answer, correct_answer):
