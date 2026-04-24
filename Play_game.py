@@ -4,6 +4,8 @@ from random import randint as rint
 from random import shuffle as shuffl
 
 from tkinter import Label
+from tkinter import PhotoImage
+
 
 import time
 
@@ -53,6 +55,19 @@ Andetsvar = tk.Button(root,
 Tredjesvar = tk.Button(root,
                        )
 
+#image_frida = PhotoImage(file="Frida.png")
+
+#image_label = tk.Label(root,
+                       #image=image_frida, width=200, height=1000
+                       #)
+
+
+
+#exitt = tk.Button(root,)
+
+
+
+
 """
 ------------------------------------------------------------------------------------------------------------------------------
 So i was searching a bunch to see how i would be able to place the timer in the top right of the window, then i found grid.
@@ -77,6 +92,15 @@ Tredjesvar.grid(row=4, column=5, sticky="nsew" )
 
 
 
+"""
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+HUSK AT KIGGE PÅ IMAGE, NÅR DU ER FÆRDIG MED RESTEN OG HUSK AT SLETTE
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+"""
 
 
 #root.grid_rowconfigure(0, weight=1)
@@ -84,6 +108,7 @@ Tredjesvar.grid(row=4, column=5, sticky="nsew" )
 #time_label.grid(row = 0, column=0, sticky="ne" )
 
 time_label.grid(row=1, column=7, sticky="ne" )
+#image_label.grid(row=3, column=1, sticky="e")
 
 
 def Timer_wrapper(time_left):
