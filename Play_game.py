@@ -30,9 +30,18 @@ use function 0.1x + 1 as the multiplier for correct answers.
 
 root = tk.Tk()
 
+#tried to do something to expand buttons and text according to screen size but found another way that worked
+#root.geometry("300x300")
 #text = Text(root, height = 5, width = 52)
+
+
+
 Question_label = tk.Label(root
                           )
+
+time_label = tk.Label(root,
+                      )
+
 
 
 Correctsvar = tk.Button(root,
@@ -44,24 +53,37 @@ Andetsvar = tk.Button(root,
 Tredjesvar = tk.Button(root,
                        )
 
-
-exitt = tk.Button(root,
-                  )
-
-Question_label.pack()
-Correctsvar.pack()
-Andetsvar.pack()
-Tredjesvar.pack()
-
-time_label = tk.Label(root,)
-
-root.grid_rowconfigure(0, weight=1)
-root.grid_columnconfigure(0, weight=1)
+"""
+------------------------------------------------------------------------------------------------------------------------------
+So i was searching a bunch to see how i would be able to place the timer in the top right of the window, then i found grid.
+Tried using it but got an error that basically said that i could use it because "slaves already managed by pack()" which i
+a bit funny. Then i just searched as much as i could and found something about adding weight and using sticky for the resizing
+for when the window gets resized
+"""
+root.grid_columnconfigure(list(range(10)), weight = 1,)
+root.grid_rowconfigure(list(range(10)), weight = 1)
 
 
-time_label.grid(row = 0, column=0, sticky="ne" )
+Question_label.grid(row=1, column=5, sticky="nsew" )
 
 
+Correctsvar.grid(row=2, column=5, sticky="nsew" )
+
+
+Andetsvar.grid(row=3, column=5, sticky="nsew" )
+
+
+Tredjesvar.grid(row=4, column=5, sticky="nsew" )
+
+
+
+
+
+#root.grid_rowconfigure(0, weight=1)
+#root.grid_columnconfigure(0, weight=1)
+#time_label.grid(row = 0, column=0, sticky="ne" )
+
+time_label.grid(row=1, column=7, sticky="ne" )
 
 
 def Timer_wrapper(time_left):
@@ -69,6 +91,8 @@ def Timer_wrapper(time_left):
 
 
 def New_tkinter_question():
+    
+    time_label.config(text="20")
     
     question, answer = ex.Question_maker()
 
