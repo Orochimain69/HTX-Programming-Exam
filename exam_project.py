@@ -101,7 +101,7 @@ def Countdown_timer(time_left):
         
         print(time_left)
         
-        root.after(1000, Countdown_timer, time_left)
+        root.after(1000, Countdown_timer, time_left - 1)
     
     
     

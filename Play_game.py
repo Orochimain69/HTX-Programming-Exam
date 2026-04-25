@@ -111,11 +111,20 @@ time_label.grid(row=1, column=7, sticky="ne" )
 #image_label.grid(row=3, column=1, sticky="e")
 
 
-def Timer_wrapper(time_left):
-    ex.Countdown_timer(time_left)
+def Timer(time_left):
+    
+    if time_left > 0:
+        time_label.config(text=time_left)
+    
+        root.after(1000, Timer, time_left - 1)
+    else:
+        print("-1 life")
+    
 
 
 def New_tkinter_question():
+    
+    
     
     time_label.config(text="20")
     
@@ -152,6 +161,7 @@ def New_tkinter_question():
                    command=lambda:check(Answer_list[2], answer)
                    )
 
+    Timer(20)
 
 def check(User_answer, correct_answer):
     ex.Answer_checking(User_answer, correct_answer)
