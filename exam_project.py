@@ -91,17 +91,15 @@ def Answer_checking(User_answer, correct_answer):
     
 #Game_start()
 
-def Countdown_timer(time_left):
-    
-    
-    if time_left > 0:
-    
-        time_left = time_left - 1
-        
-        
-        print(time_left)
-        
-        root.after(1000, Countdown_timer, time_left - 1)
+# def Countdown_timer(time_left):
+#     
+#     
+#     if time_left > 0:
+#     
+#         
+#         print(time_left)
+#         
+#         root.after(1000, Countdown_timer, time_left - 1)
     
     
     
@@ -115,7 +113,9 @@ def Point_system(time_left):
         
         Points_before_rounding = 1.1**time_left
         
-        
+    
+    
+    Point_function(time_left)
         
         
         

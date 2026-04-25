@@ -32,6 +32,12 @@ use function 0.1x + 1 as the multiplier for correct answers.
 
 root = tk.Tk()
 
+
+#this is used later, for stopping the timer. using root.timer_status, to assign variable to root, instead of doing GLOBAL.
+#as root is just another object.
+root.timer_status = None
+
+
 #tried to do something to expand buttons and text according to screen size but found another way that worked
 #root.geometry("300x300")
 #text = Text(root, height = 5, width = 52)
@@ -110,15 +116,23 @@ HUSK AT KIGGE PÅ IMAGE, NÅR DU ER FÆRDIG MED RESTEN OG HUSK AT SLETTE
 time_label.grid(row=1, column=7, sticky="ne" )
 #image_label.grid(row=3, column=1, sticky="e")
 
-
+"""
+using after to make 1 second pass, so that the countdown is in seconds. configures time text so user can see the time left.
+"""
 def Timer(time_left):
     
-    if time_left > 0:
+    if time_left >= 0:
         time_label.config(text=time_left)
-    
-        root.after(1000, Timer, time_left - 1)
+        root.timer_status = root.after(1000, Timer, time_left - 1)
     else:
         print("-1 life")
+    
+    
+def Timer_stop():
+    if root.timer_status != None:
+        root.after_cancel(root.timer_status)
+    root.timer_status = None 
+
     
 
 
@@ -145,26 +159,30 @@ def New_tkinter_question():
 
 
     Correctsvar.config(text = Answer_list[0],
-                   command=lambda:check(Answer_list[0], answer)
+                   command=lambda:(Timer_stop(), check(Answer_list[0], answer))
                    )
 
 
 
 
     Andetsvar.config(text = Answer_list[1],
-                   command=lambda:check(Answer_list[1], answer)
+                   command=lambda:(Timer_stop(), check(Answer_list[1], answer))
                    )
 
 
 
     Tredjesvar.config(text = Answer_list[2],
-                   command=lambda:check(Answer_list[2], answer)
+                   command=lambda:(Timer_stop(), check(Answer_list[2], answer))
                    )
 
     Timer(20)
 
 def check(User_answer, correct_answer):
     ex.Answer_checking(User_answer, correct_answer)
+    
+    
+    
+    
     New_tkinter_question()
 
     
