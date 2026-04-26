@@ -40,6 +40,8 @@ root.geometry(f'{width+1}x{height}')
 
 #this is used later, for stopping the timer. using root.timer_status, to assign variable to root, instead of doing GLOBAL.
 #as root is just another object.
+
+
 root.timer_status = None
 
 
@@ -276,6 +278,7 @@ def New_tkinter_question(TimeClass):
     Tredjesvar.config(text = Answer_list[2],
                    command=lambda:(TimeClass.Timer_stop(), check(Answer_list[2], answer))
                    )
+    
     TimeClass.Timer(30)
 
 def check(User_answer, correct_answer):
