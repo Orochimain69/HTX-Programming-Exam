@@ -2,6 +2,7 @@ import tkinter as tk
 import tkinter.font as tkfont
 from tkinter import ttk
 
+import Play_game
 
 
     
@@ -102,10 +103,12 @@ def new_window(selected_option):
         # title in window and custom font
         custom_font = tkfont.Font(family='Arial', size=36)
         label = tk.Label(root, text="Let Spil", font=custom_font)
-        label.pack(
+        label.grid(row=0, column=5,
         padx=(0,0),
         pady=(50,100)
         )
+        
+        
         
 #         # creating a textbox to write in
 #         textvar = tk.StringVar()
@@ -130,7 +133,8 @@ def new_window(selected_option):
         height=None, width=15,
         font=custom_font_button,
         command=root.destroy)
-        button_QUIT.pack(pady=(50,20))
+        button_QUIT.grid(row=10, column=5, pady=(50,20))
+        Play_game.Start(root, "Let")	
 
 
         # MINUS window with all included, creatong game window popup
@@ -246,14 +250,14 @@ def new_window(selected_option):
 #         button_answar.pack(pady=(5,20))
 
         #button to quit
-        button_QUIT = tk.Button(root,
-        activebackground="blue",
-        activeforeground="white",
-        text='QUIT',
-        height=None, width=15,
-        font=custom_font_button,
-        command=root.destroy)
-        button_QUIT.pack(pady=(50,20))
+#         button_QUIT = tk.Button(root,
+#         activebackground="blue",
+#         activeforeground="white",
+#         text='QUIT',
+#         height=None, width=15,
+#         font=custom_font_button,
+#         command=root.destroy)
+#         button_QUIT.pack(pady=(50,20))
 
 
     
