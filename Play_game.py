@@ -160,11 +160,11 @@ class Timing_and_points:
         self.Highscore_Heading.config(text="Highscore")
         
         
-        self.Highscore_label = tk.Label(root,
+        self.Highscore_points = tk.Label(root,
                                         )
-        self.Highscore_label.grid(row=2, column=7, sticky="se",) 
+        self.Highscore_points.grid(row=2, column=7, sticky="se",) 
         
-        self.Highscore_label.config(text= self.Highscore)
+        self.Highscore_points.config(text= self.Highscore)
         
 
         """
@@ -213,8 +213,10 @@ class Timing_and_points:
         
         self.Highscore += Rounded_points_earned
         
-        print("")
-        print(self.Highscore)
+        self.Highscore_points.config(text=self.Highscore)
+        
+        #print("")
+        #print(self.Highscore)
         
     
 
