@@ -12,11 +12,11 @@ User_points = 0
 def Question_maker(selected_difficulty):
     
     
-    if selected_difficulty == "Svær":
+    if selected_difficulty == "Hard":
         Question_difficulty = random.randint(3,5)
     elif selected_difficulty == "Medium":
         Question_difficulty = random.randint(2,3)
-    elif selected_difficulty == "Let":
+    elif selected_difficulty == "Easy":
         Question_difficulty = random.randint(1,2)
         
         

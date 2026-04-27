@@ -2,7 +2,7 @@ import tkinter as tk
 
 from random import randint as rint
 from random import shuffle as shuffl
-
+import tkinter.font as tkfont
 from tkinter import Label
 from tkinter import PhotoImage
 
@@ -233,6 +233,7 @@ def Start(root, difficulty):
                 
                 self.Times_correct +=1
                 
+                
                 Multiplier = Point_multiplier(self, self.Times_correct)
                     
                 points_earned = points(self, time_left)*Multiplier
@@ -244,7 +245,7 @@ def Start(root, difficulty):
                 self.Highscore_points.config(text=self.Highscore)
             elif Boolean == False:
                 
-                Game_Over.lives_lost()
+                Game_Done.lives_lost()
                 
 
                     
@@ -259,8 +260,6 @@ def Start(root, difficulty):
             
             self.lives = 3
             
-            self.game_over_label = tk.Label(root,
-                                            )
             
             self.lives_label = tk.Label(root, text= (f'Lives: {self.lives}')
                                         )
@@ -274,9 +273,24 @@ def Start(root, difficulty):
             for widgets in root.winfo_children():
                 widgets.destroy()
             
-            
+            self.game_over_label = tk.Label(root,
+                                            )
             self.game_over_label.grid(row=2, column=5)
             self.game_over_label.config(text="Game Over", font= ("arial", 20))
+            self.Quit_button()
+            
+            
+        def Quit_button(self):
+            
+            
+            button_QUIT = tk.Button(root,
+            activebackground="blue",
+            activeforeground="white",
+            text='QUIT',
+            height=None, width=15,
+            font=tkfont.Font(family='Arial', size=18),
+            command=root.destroy)
+            button_QUIT.grid(row=10, column=5, pady=(50,20))
             
             
         
@@ -287,7 +301,7 @@ def Start(root, difficulty):
             
             if self.lives == 0:
                 self.Game_over_screen()
-                
+
             
             
         
@@ -368,6 +382,9 @@ def Start(root, difficulty):
         
         TimeClass.Timer_stop(Boolean)
         
+        if Game_Done.lives == 0:
+            return #makes sure that the program doesnt run the configs with no labels or buttons
+        
         
         New_tkinter_question(TimeClass, difficulty)
 
@@ -379,7 +396,7 @@ def Start(root, difficulty):
     
     Answer_Check = ex.Answer_checker
     TimeClass = Timing_and_points()
-    Game_Over = Game_over()
+    Game_Done = Game_over()
     New_tkinter_question(TimeClass, difficulty)
 
 

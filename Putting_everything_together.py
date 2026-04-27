@@ -5,6 +5,7 @@ from tkinter import ttk
 import Play_game
 
 
+
     
 
 def main_window():
@@ -32,7 +33,7 @@ def main_window():
     # Create a Combobox widget
     combo_box = ttk.Combobox(
         root,
-        values=["Let", "Medium", "Svær"],
+        values=["Easy", "Medium", "Hard"],
         state="readonly",
     )
     combo_box.pack(pady=5)
@@ -88,21 +89,32 @@ def main_window():
     button_QUIT.pack(pady=(50,20))
 
     root.mainloop()
-    
+
+
+def Quit_new_window(root, custom_font_button):
+        button_QUIT = tk.Button(root,
+        activebackground="blue",
+        activeforeground="white",
+        text='QUIT',
+        height=None, width=15,
+        font=custom_font_button,
+        command=root.destroy)
+        button_QUIT.grid(row=10, column=5, pady=(50,20))
+
     
 def new_window(selected_option):
     custom_font_button = tkfont.Font(family='Arial', size=18)
     
     # PLUS window with all included, creating game window popup
-    if selected_option == "Let":
+    if selected_option == "Easy":
         root = tk.Tk()
-        root.title("Let spil")
+        root.title("Easy")
         root.resizable(height = None, width = None)
         root.geometry('600x400')
         
         # title in window and custom font
         custom_font = tkfont.Font(family='Arial', size=36)
-        label = tk.Label(root, text="Let Spil", font=custom_font)
+        label = tk.Label(root, text="Easy", font=custom_font)
         label.grid(row=0, column=5,
         padx=(0,0),
         pady=(50,100)
@@ -126,28 +138,21 @@ def new_window(selected_option):
 #         button_answar.pack(pady=(5,20))
         
         #button to quit
-        button_QUIT = tk.Button(root,
-        activebackground="blue",
-        activeforeground="white",
-        text='QUIT',
-        height=None, width=15,
-        font=custom_font_button,
-        command=root.destroy)
-        button_QUIT.grid(row=10, column=5, pady=(50,20))
-        Play_game.Start(root, "Let")	
+        Quit_new_window(root,custom_font_button)
+        Play_game.Start(root, "Easy")
 
 
         # MINUS window with all included, creatong game window popup
     elif selected_option == "Medium":
         root = tk.Tk()
-        root.title("Medium spil")
+        root.title("Medium")
         root.resizable(height = None, width = None)
         root.geometry('600x400')
         
         # title in window and custom font
         custom_font = tkfont.Font(family='Arial', size=36)
-        label = tk.Label(root, text="Medium Spil", font=custom_font)
-        label.pack(
+        label = tk.Label(root, text="Medium", font=custom_font)
+        label.grid(row=0, column=5,
         padx=(0,0),
         pady=(50,100)
         )
@@ -168,27 +173,20 @@ def new_window(selected_option):
 #         button_answar.pack(pady=(5,20))
 
         #button to quit
-        button_QUIT = tk.Button(root,
-        activebackground="blue",
-        activeforeground="white",
-        text='QUIT',
-        height=None, width=15,
-        font=custom_font_button,
-        command=root.destroy)
-        button_QUIT.pack(pady=(50,20))
-
+        Quit_new_window(root,custom_font_button)
+        Play_game.Start(root, "Medium")
         
         # GANGE window with all included, creating game window popup
-    elif selected_option == "Svær":
+    elif selected_option == "Hard":
         root = tk.Tk()
-        root.title("Svært spil")
+        root.title("Hard")
         root.resizable(height = None, width = None)
         root.geometry('600x400')
         
         # title in window and custom font
         custom_font = tkfont.Font(family='Arial', size=36)
-        label = tk.Label(root, text="Svært Spil", font=custom_font)
-        label.pack(
+        label = tk.Label(root, text="Hard", font=custom_font)
+        label.grid(row=0, column=5,
         padx=(0,0),
         pady=(50,100)
         )
@@ -209,15 +207,9 @@ def new_window(selected_option):
 #         button_answar.pack(pady=(5,20))
 
         #button to quit
-        button_QUIT = tk.Button(root,
-        activebackground="blue",
-        activeforeground="white",
-        text='QUIT',
-        height=None, width=15,
-        font=custom_font_button,
-        command=root.destroy)
-        button_QUIT.pack(pady=(50,20))
-
+        Quit_new_window(root,custom_font_button)
+        Play_game.Start(root, "Hard")
+        
         
         # DIVISION window with all included, creating game window popup
 #     elif selected_option == "Division":
@@ -260,9 +252,9 @@ def new_window(selected_option):
 #         button_QUIT.pack(pady=(50,20))
 
 
-    
-    
-   
+
+
+
     root.mainloop()
     
 
