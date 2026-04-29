@@ -6,11 +6,14 @@ import Play_game
 
 
 
-    
+
+
+
 
 def main_window():
     # root is Tkinter window
     root = tk.Tk()
+    root.attributes("-fullscreen", True)
     root.title("Matematik Spil")
 
     # resizeing of window for better visibility
@@ -19,12 +22,26 @@ def main_window():
 
     # label is title of game in Tkinter window
     custom_font = tkfont.Font(family='Arial', size=36)
+    
+    
+    try:
+        
+        with open("Highscore_data.txt", "r") as f1:
+            Highest_score = f1.read()
+    except (FileNotFoundError, ValueError):
+            with open("Highscore_data.txt", 'w') as f2:
+                f2.write("0")   
+    highscore_label = tk.Label(root,
+                               text=
+                               f'highscore = {Highest_score}',font= ("arial", 16))
+    
     label = tk.Label(root, text="Matematik Spil", font=custom_font)
     label.pack(
         padx=(0,0),
         pady=(150,100)
         )
 
+    highscore_label.pack()
 
     label = tk.Label(root, text="Mode Selected:")
     label.pack(pady=10)
@@ -108,6 +125,9 @@ def new_window(selected_option):
     # PLUS window with all included, creating game window popup
     if selected_option == "Easy":
         root = tk.Tk()
+        root.attributes("-fullscreen", True)
+        
+        
         root.title("Easy")
         root.resizable(height = None, width = None)
         root.geometry('600x400')

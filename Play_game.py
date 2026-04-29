@@ -14,18 +14,6 @@ import exam_project as ex
 
 
 
-"""
-1.1^x as the time function, for points, remember to use math.ceil for rounding up.
-
-
-
-use function 0.1x + 1 as the multiplier for correct answers.
-
-
-"""
-
-
-
 
 
 #
@@ -49,6 +37,12 @@ use function 0.1x + 1 as the multiplier for correct answers.
 #tried to do something to expand buttons and text according to screen size but found another way that worked
 #root.geometry("300x300")
 #text = Text(root, height = 5, width = 52)
+
+"""
+
+just a function that starts the program when its called.
+
+"""
 
 def Start(root, difficulty):
     
@@ -107,15 +101,7 @@ def Start(root, difficulty):
 
 
 
-    """
-
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-    HUSK AT KIGGE PÅ IMAGE, NÅR DU ER FÆRDIG MED RESTEN OG HUSK AT SLETTE
-
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-    """
+    
 
 
     #root.grid_rowconfigure(0, weight=1)
@@ -134,6 +120,13 @@ def Start(root, difficulty):
     so with the help from some searches and some other peoples examples of classes, i have figured out that if something is inside
     a class it needs either self, Timing_and_points or another object. i have looked at it for 4 hours now and holy shit it is hard
 
+
+    the class under does 3 things.
+    1. it starts a timer.
+    2. it stops the timer when an answer is selected
+    3. it takes the remaning times, when answered correct and allocates points based on that and multiplies it with a function
+    that takes the amount of correct answers in a row.
+    
 
     """
     class Timing_and_points:
@@ -196,7 +189,8 @@ def Start(root, difficulty):
                 self.time_label.config(text=time_left)
                 self.timer_status = root.after(1000, self.Timer, time_left - 1)
             else:
-                print("-1 life")
+                Game_Done.lives_lost()
+                
                 
         
         
@@ -249,12 +243,42 @@ def Start(root, difficulty):
                 
 
                     
+    class Highscore_save_and_load:
+        def __init__(self):
             
+            try:
+                
+                with open("Highscore_data.txt", "r") as f1:
+                    self.Highest_score = f1.read()
+            except (FileNotFoundError, ValueError):
+                with open("Highscore_data.txt", 'w') as f2:
+                    f2.write("0")
+        def save_highscore(self):
+            
+            with open("Highscore_data.txt", 'r') as f1:
+                old_score = int(f1.read())
+            if TimeClass.Highscore > old_score:
+                self.Highest_score = TimeClass.Highscore
+                with open("Highscore_data.txt", 'w') as f2:
+                    f2.write(str(self.Highest_score))
+                
+            
+            
+            
+            
+            
+            pass
             
             #print("")
             #print(self.Highscore)
             
-        
+    """
+    
+    
+    Game over screen that deletes all widgets when lives hit 0, this class also holds the lives function and the lives value
+    
+    
+    """
     class Game_over:
         def __init__(self):
             
@@ -282,7 +306,6 @@ def Start(root, difficulty):
             
         def Quit_button(self):
             
-            
             button_QUIT = tk.Button(root,
             activebackground="blue",
             activeforeground="white",
@@ -291,6 +314,7 @@ def Start(root, difficulty):
             font=tkfont.Font(family='Arial', size=18),
             command=root.destroy)
             button_QUIT.grid(row=10, column=5, pady=(50,20))
+            Highscore_Data.save_highscore()
             
             
         
@@ -374,11 +398,11 @@ def Start(root, difficulty):
         if  Answer_Check.Answer_Boolean == True:
             Boolean = True
             TimeClass.Times_correct += 1
-            print("correct")
+            #print("correct")
         elif Answer_Check.Answer_Boolean == False:
             Boolean = False
             TimeClass.Times_correct = 0
-            print("wrong")
+            #print("wrong")
         
         TimeClass.Timer_stop(Boolean)
         
@@ -390,10 +414,7 @@ def Start(root, difficulty):
 
         
         
-        
-        #for widget in root.winfo_children():
-            #widget.destroy()
-    
+    Highscore_Data = Highscore_save_and_load()
     Answer_Check = ex.Answer_checker
     TimeClass = Timing_and_points()
     Game_Done = Game_over()
