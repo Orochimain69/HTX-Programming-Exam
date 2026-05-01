@@ -165,6 +165,7 @@ def new_window(selected_option):
         # MINUS window with all included, creatong game window popup
     elif selected_option == "Medium":
         root = tk.Tk()
+        root.attributes("-fullscreen", True)
         root.title("Medium")
         root.resizable(height = None, width = None)
         root.geometry('600x400')
@@ -199,6 +200,7 @@ def new_window(selected_option):
         # GANGE window with all included, creating game window popup
     elif selected_option == "Hard":
         root = tk.Tk()
+        root.attributes("-fullscreen", True)
         root.title("Hard")
         root.resizable(height = None, width = None)
         root.geometry('600x400')
